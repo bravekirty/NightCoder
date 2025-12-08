@@ -213,11 +213,11 @@ ruff format .         # Formatting
 
 ## 🌐 Deployment
 
-Night Coder is deployed on **Render** with automatic CI/CD:
+Night Coder is deployed on **Railway** with automatic CI/CD:
 
 1. **Push to main branch** → Automatic deployment
-2. **build.sh and start.sh** → Build and start scripts
-3. **Environment** → Production-ready configuration
+2. **CI/CD** → Build after linting and testing pass
+3. **Environment** → Production configuration
 
 ## 🤝 Contributing
 

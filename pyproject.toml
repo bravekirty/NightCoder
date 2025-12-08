@@ -6,7 +6,7 @@ authors = [
     { name = "Kirill Tarasov", email = "bravekirty@gmail.com" }
 ]
 readme = "README.md"
-requires-python = ">=3.13,<4.0"
+requires-python = ">=3.10,<4.0"
 # PROD
 dependencies = [
     "aiohttp>=3.11.16,<4.0.0",

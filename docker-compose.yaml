@@ -1,7 +1,6 @@
 services:
   web:
     build: .
-    command: gunicorn -c gunicorn.conf.py django_forum.wsgi:application
     volumes:
       - static_volume:/app/staticfiles
     ports:
@@ -10,7 +9,6 @@ services:
       - .env
     environment:
       - DJANGO_SETTINGS_MODULE=django_forum.settings
-      - PYTHONPATH=/app:/app/django_forum
     depends_on:
       - db
     restart: unless-stopped

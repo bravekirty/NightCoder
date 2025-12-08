@@ -13,17 +13,17 @@ WORKDIR /app
 
 RUN pip install --no-cache-dir poetry
 
-COPY pyproject.toml poetry.lock /app/
+COPY pyproject.toml poetry.lock .
 
 RUN poetry config virtualenvs.create false && \
     poetry install --no-interaction --no-ansi --no-root
 
-COPY . /app/
+COPY . .
 
-RUN chmod +x /app/docker-entrypoint.sh
+RUN chmod +x ./docker-entrypoint.sh
 
-RUN mkdir -p /app/staticfiles
+RUN mkdir -p ./staticfiles
 
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
 
 CMD ["gunicorn", "django_forum.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "2"]
