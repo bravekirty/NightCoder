@@ -65,15 +65,16 @@ class QuestionDetailView(DetailView):
         context["answers"] = self.object.answers.all()
         question = context["question"]
 
-        question.upvotes = question.get_upvotes().count()
-        question.downvotes = question.get_downvotes().count()
+        print(question.get_upvotes())
+        question.upvotes = len(question.get_upvotes())
+        question.downvotes = len(question.get_downvotes())
         question.vote_count = question.upvotes - question.downvotes
 
         question.user_vote = question.get_user_vote(self.request.user)
 
         for answer in context["answers"]:
-            answer.upvotes = answer.get_upvotes().count()
-            answer.downvotes = answer.get_downvotes().count()
+            answer.upvotes = len(answer.get_upvotes())
+            answer.downvotes = len(answer.get_downvotes())
             answer.vote_count = answer.upvotes - answer.downvotes
 
             answer.user_vote = answer.get_user_vote(self.request.user)

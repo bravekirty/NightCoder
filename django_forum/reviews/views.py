@@ -38,8 +38,8 @@ class ReviewListView(ListView):
         context["is_search"] = bool(query)
 
         for review in context["reviews"]:
-            review.upvotes = review.get_upvotes().count()
-            review.downvotes = review.get_downvotes().count()
+            review.upvotes = len(review.get_upvotes())
+            review.downvotes = len(review.get_downvotes())
             review.vote_count = review.upvotes - review.downvotes
 
         return context
@@ -55,8 +55,8 @@ class ReviewDetailView(DetailView):
         review = context["review"]
 
         # Add vote data
-        review.upvotes = review.get_upvotes().count()
-        review.downvotes = review.get_downvotes().count()
+        review.upvotes = len(review.get_upvotes())
+        review.downvotes = len(review.get_downvotes())
         review.vote_count = review.upvotes - review.downvotes
 
         if self.request.user.is_authenticated:

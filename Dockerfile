@@ -7,7 +7,8 @@ ENV PYTHONPATH="/app:/app/django_forum"
 RUN apt-get update && apt-get install -y \
     netcat-traditional \
     postgresql-client \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /app
 

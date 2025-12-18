@@ -107,7 +107,7 @@
                     <div class="border-bottom border-dark p-3 hover-glow">
                         <div class="d-flex align-items-start">
                             <div class="text-center me-3" style="min-width: 50px;">
-                                <div class="text-success fw-bold small">{{ question.get_vote_count }}</div>
+                                <div class="text-success fw-bold small">{{ question.get_vote_score }}</div>
                                 <small class="text-muted">{% trans "votes" %}</small>
                             </div>
                             <div class="flex-grow-1">
@@ -157,7 +157,7 @@
                                 </div>
                             </div>
                             <div class="text-end flex-shrink-0">
-                                <span class="badge bg-success">{{ review.get_vote_count }}</span>
+                                <span class="badge bg-success">{{ review.get_vote_score }}</span>
                                 <div class="text-muted small">{% trans "votes" %}</div>
                             </div>
                         </div>

@@ -55,9 +55,9 @@ class PublicProfileView(DetailView):
         ).order_by("-created_at")[:10]
         context["user_reviews"] = user.reviews.select_related("author__profile").order_by("-created_at")[:10]
 
-        question_upvotes = sum(question.get_upvotes().count() for question in user.questions.all())
-        answer_upvotes = sum(answer.get_upvotes().count() for answer in user.answers.all())
-        review_upvotes = sum(review.get_upvotes().count() for review in user.reviews.all())
+        question_upvotes = sum(len(question.get_upvotes()) for question in user.questions.all())
+        answer_upvotes = sum(len(answer.get_upvotes()) for answer in user.answers.all())
+        review_upvotes = sum(len(review.get_upvotes) for review in user.reviews.all())
         accepted_answers = user.answers.filter(is_accepted=True).count()
 
         context["question_upvotes"] = question_upvotes * REPUTATION_RULES["question_upvote"]

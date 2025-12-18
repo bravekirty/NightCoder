@@ -175,8 +175,8 @@
                                     <div class="border-bottom border-dark p-4 hover-glow">
                                         <div class="d-flex align-items-start">
                                             <div class="text-center me-3" style="min-width: 60px;">
-                                                <div class="fw-bold fs-5 {% if question.get_vote_count > 0 %}text-success{% elif question.get_vote_count < 0 %}text-danger{% else %}text-light-50{% endif %}">
-                                                    {{ question.get_vote_count }}
+                                                <div class="fw-bold fs-5 {% if question.get_vote_score > 0 %}text-success{% elif question.get_vote_score < 0 %}text-danger{% else %}text-light-50{% endif %}">
+                                                    {{ question.get_vote_score }}
                                                 </div>
                                                 <small class="text-light-50">{% trans "votes" %}</small>
                                             </div>
@@ -231,8 +231,8 @@
                                         {% endif %}
                                         <div class="d-flex align-items-start">
                                             <div class="text-center me-3" style="min-width: 60px;">
-                                                <div class="fw-bold fs-5 {% if answer.get_vote_count > 0 %}text-success{% elif answer.get_vote_count < 0 %}text-danger{% else %}text-light-50{% endif %}">
-                                                    {{ answer.get_vote_count }}
+                                                <div class="fw-bold fs-5 {% if answer.get_vote_score > 0 %}text-success{% elif answer.get_vote_score < 0 %}text-danger{% else %}text-light-50{% endif %}">
+                                                    {{ answer.get_vote_score }}
                                                 </div>
                                                 <small class="text-light-50">{% trans "votes" %}</small>
                                             </div>
@@ -281,8 +281,8 @@
                                     <div class="border-bottom border-dark p-4 hover-glow">
                                         <div class="d-flex align-items-start">
                                             <div class="text-center me-3" style="min-width: 60px;">
-                                                <div class="fw-bold fs-5 {% if review.get_vote_count > 0 %}text-success{% elif review.get_vote_count < 0 %}text-danger{% else %}text-light-50{% endif %}">
-                                                    {{ review.get_vote_count }}
+                                                <div class="fw-bold fs-5 {% if review.get_vote_score > 0 %}text-success{% elif review.get_vote_score < 0 %}text-danger{% else %}text-light-50{% endif %}">
+                                                    {{ review.get_vote_score }}
                                                 </div>
                                                 <small class="text-light-50">{% trans "votes" %}</small>
                                                 <div class="text-warning small mt-1">

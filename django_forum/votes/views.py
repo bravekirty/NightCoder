@@ -25,9 +25,9 @@ def vote(request, content_type_id, object_id, vote_type):
         {
             "success": True,
             "result": result,
-            "vote_count": obj.get_vote_count(),
+            "vote_count": obj.get_vote_score(),
             "user_vote": obj.get_user_vote(request.user),
-            "upvotes": obj.get_upvotes().count(),
-            "downvotes": obj.get_downvotes().count(),
+            "upvotes": len(obj.get_upvotes()),
+            "downvotes": len(obj.get_downvotes()),
         },
     )

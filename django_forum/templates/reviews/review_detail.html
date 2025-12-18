@@ -199,9 +199,44 @@
     </div>
 </div>
 
-<!-- JavaScript -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Get current language prefix from URL
+    const currentPath = window.location.pathname;
+    let langPrefix = '';
+
+    // Extract language prefix
+    if (currentPath.startsWith('/ru/')) {
+        langPrefix = '/ru';
+    } else if (currentPath.startsWith('/en/')) {
+        langPrefix = '/en';
+    }
+    // Add more languages as needed
+
+    // CSRF token helper function
+    function getCSRFToken() {
+        const csrfToken = '{{ csrf_token }}';
+        if (csrfToken && csrfToken !== 'None') {
+            return csrfToken;
+        }
+        // Fallback: try to get from cookie
+        const name = 'csrftoken';
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    const csrfToken = getCSRFToken();
+
     // Voting functionality
     document.querySelectorAll('.vote-btn').forEach(button => {
         button.addEventListener('click', function() {
@@ -209,20 +244,32 @@ document.addEventListener('DOMContentLoaded', function() {
             const objectId = this.dataset.objectId;
             const voteType = this.dataset.voteType;
 
-            fetch(`/votes/${contentType}/${objectId}/${voteType}/`, {
+            // Include language prefix in the URL
+            const voteUrl = `${langPrefix}/votes/${contentType}/${objectId}/${voteType}/`;
+
+            fetch(voteUrl, {
                 method: 'POST',
                 headers: {
-                    'X-CSRFToken': '{{ csrf_token }}',
+                    'X-CSRFToken': csrfToken,
                     'Content-Type': 'application/json',
                 },
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.success) {
                     location.reload();
                 } else {
                     alert('{% trans "Error:" %} ' + data.error);
                 }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('{% trans "An error occurred while voting. Please try again." %}');
             });
         });
     });

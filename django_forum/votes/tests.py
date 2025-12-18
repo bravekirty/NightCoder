@@ -167,10 +167,10 @@ class VoteableMixinTest(TestCase):
         self.assertEqual(self.question.get_upvotes().count(), 1)
         self.assertEqual(self.question.get_downvotes().count(), 1)
 
-    def test_get_vote_count(self):
-        """Test get_vote_count method"""
+    def test_get_vote_score(self):
+        """Test get_vote_score method"""
         # Initially zero
-        self.assertEqual(self.question.get_vote_count(), 0)
+        self.assertEqual(self.question.get_vote_score(), 0)
 
         # Add upvote
         Vote.objects.create(
@@ -179,7 +179,7 @@ class VoteableMixinTest(TestCase):
             object_id=self.question.pk,
             vote_type="up",
         )
-        self.assertEqual(self.question.get_vote_count(), 1)
+        self.assertEqual(self.question.get_vote_score(), 1)
 
         # Add downvote
         another_voter = User.objects.create_user(
@@ -193,7 +193,7 @@ class VoteableMixinTest(TestCase):
             object_id=self.question.pk,
             vote_type="down",
         )
-        self.assertEqual(self.question.get_vote_count(), 0)  # 1 up - 1 down = 0
+        self.assertEqual(self.question.get_vote_score(), 0)  # 1 up - 1 down = 0
 
     def test_get_user_vote(self):
         """Test get_user_vote method"""
@@ -218,7 +218,7 @@ class VoteableMixinTest(TestCase):
 
         self.assertEqual(result, "added")
         self.assertEqual(self.question.get_user_vote(self.voter), "up")
-        self.assertEqual(self.question.get_vote_count(), 1)
+        self.assertEqual(self.question.get_vote_score(), 1)
 
         # Check reputation was awarded
         self.user.profile.refresh_from_db()
@@ -231,7 +231,7 @@ class VoteableMixinTest(TestCase):
 
         self.assertEqual(result, "added")
         self.assertEqual(self.question.get_user_vote(self.voter), "down")
-        self.assertEqual(self.question.get_vote_count(), -1)
+        self.assertEqual(self.question.get_vote_score(), -1)
 
         # Check reputation was deducted
         self.user.profile.refresh_from_db()
@@ -248,7 +248,7 @@ class VoteableMixinTest(TestCase):
 
         self.assertEqual(result, "removed")
         self.assertIsNone(self.question.get_user_vote(self.voter))
-        self.assertEqual(self.question.get_vote_count(), 0)
+        self.assertEqual(self.question.get_vote_score(), 0)
 
         # Check reputation was reversed
         self.user.profile.refresh_from_db()
@@ -266,7 +266,7 @@ class VoteableMixinTest(TestCase):
 
         self.assertEqual(result, "updated")
         self.assertEqual(self.question.get_user_vote(self.voter), "down")
-        self.assertEqual(self.question.get_vote_count(), -1)
+        self.assertEqual(self.question.get_vote_score(), -1)
 
         # Check reputation was updated (upvote removed, downvote added)
         self.user.profile.refresh_from_db()
@@ -279,7 +279,7 @@ class VoteableMixinTest(TestCase):
         """Test that anonymous users cannot vote"""
         result = self.question.vote(None, "up")
         self.assertFalse(result)
-        self.assertEqual(self.question.get_vote_count(), 0)
+        self.assertEqual(self.question.get_vote_score(), 0)
 
     def test_vote_own_content(self):
         """Test that users cannot vote on their own content"""
@@ -287,7 +287,7 @@ class VoteableMixinTest(TestCase):
 
         self.assertFalse(result)
         self.assertIsNone(self.question.get_user_vote(self.user))
-        self.assertEqual(self.question.get_vote_count(), 0)
+        self.assertEqual(self.question.get_vote_score(), 0)
 
         # Reputation should not change
         self.user.profile.refresh_from_db()
@@ -542,7 +542,7 @@ class VoteIntegrationTest(TestCase):
         # Check final state
         self.assertEqual(self.question.get_upvotes().count(), 1)
         self.assertEqual(self.question.get_downvotes().count(), 1)
-        self.assertEqual(self.question.get_vote_count(), 0)
+        self.assertEqual(self.question.get_vote_score(), 0)
 
     def test_vote_lifecycle(self):
         """Test complete vote lifecycle: add -> change -> remove"""
