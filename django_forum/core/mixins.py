@@ -30,11 +30,11 @@ BENEFITS:
 - Maintenance: Change database logic without touching business logic
 """
 
-from typing import Optional
 from django.contrib.auth import get_user_model
-from core.base import IVoteRepository, IReputationCalculator
-from core.repositories import DjangoVoteRepository
+
+from core.base import IReputationCalculator, IVoteRepository
 from core.calculators import BasicReputationCalculator
+from core.repositories import DjangoVoteRepository
 from core.services import ReputationService
 
 User = get_user_model()
@@ -71,7 +71,7 @@ class VoteableMixin:
     def get_vote_score(self):
         return self._vote_repository.get_vote_score(self)
 
-    def get_user_vote(self, user: Optional[User]) -> Optional[str]:
+    def get_user_vote(self, user: User | None) -> str | None:
         return self._vote_repository.get_user_vote(self, user)
 
     def vote(self, user: User, vote_type: str) -> str:
@@ -94,13 +94,9 @@ class VoteableMixin:
         model_name = self.__class__.__name__.lower()
 
         if result == "removed":
-            points = self._reputation_calculator.calculate(
-                model_name, old_vote_type, removed=True
-            )
+            points = self._reputation_calculator.calculate(model_name, old_vote_type, removed=True)
         elif result == "updated":
-            points = self._reputation_calculator.calculate(
-                model_name, old_vote_type, new_vote_type=new_vote_type
-            )
+            points = self._reputation_calculator.calculate(model_name, old_vote_type, new_vote_type=new_vote_type)
         else:
             points = self._reputation_calculator.calculate(model_name, new_vote_type)
 

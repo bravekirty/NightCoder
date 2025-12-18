@@ -5,7 +5,7 @@
 > **Место, где разработчики кодят и развиваются вместе**  
 > *Потому что код не спит, и мы тоже* 🚀
 
-![CI/CD](https://github.com/Tarasyonok/pet-project-forum/actions/workflows/ci.yml/badge.svg)
+![CI/CD](https://github.com/bravekirty/NightCoder/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
 ![Django](https://img.shields.io/badge/Django-5.2-darkgreen?logo=django)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-blue?logo=postgresql)

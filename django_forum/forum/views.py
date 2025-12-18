@@ -65,7 +65,6 @@ class QuestionDetailView(DetailView):
         context["answers"] = self.object.answers.all()
         question = context["question"]
 
-        print(question.get_upvotes())
         question.upvotes = len(question.get_upvotes())
         question.downvotes = len(question.get_downvotes())
         question.vote_count = question.upvotes - question.downvotes

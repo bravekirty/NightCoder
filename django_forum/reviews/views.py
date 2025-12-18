@@ -124,8 +124,8 @@ class UserReviewListView(ListView):
         print(context["profile_user"])
 
         for review in context["reviews"]:
-            review.upvotes = review.get_upvotes().count()
-            review.downvotes = review.get_downvotes().count()
+            review.upvotes = len(review.get_upvotes())
+            review.downvotes = len(review.get_downvotes())
             review.vote_count = review.upvotes - review.downvotes
 
         if reviews:

@@ -30,6 +30,7 @@ class ReputationService:
             profile.reputation_points += points
             profile.save()
 
+
 class StatisticsService:
     def __init__(self, vote_query: IVoteQuery):
         self.vote_query = vote_query
@@ -52,7 +53,7 @@ class VoteManager:
 
     def get_stats(self, obj):
         return {
-            'total': len(self.vote_repository.get_votes_for_object(obj)),
-            'count': self.vote_repository.get_vote_count(obj),
-            'score': self.vote_repository.get_vote_score(obj),
+            "total": len(self.vote_repository.get_votes_for_object(obj)),
+            "count": self.vote_repository.get_vote_count(obj),
+            "score": self.vote_repository.get_vote_score(obj),
         }

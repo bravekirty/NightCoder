@@ -64,18 +64,17 @@ class IReputationService(IReputationCalculator, Protocol):
     def apply_change(self, profile, points) -> None: ...
 
 
-
 class BaseVoteQuery(ABC):
     @abstractmethod
     def get_votes_for_object(self, obj): ...
 
     def get_upvotes(self, obj):
         votes = self.get_votes_for_object(obj)
-        return [v for v in votes if getattr(v, 'vote_type', None) == 'up']
+        return [v for v in votes if getattr(v, "vote_type", None) == "up"]
 
     def get_downvotes(self, obj):
         votes = self.get_votes_for_object(obj)
-        return [v for v in votes if getattr(v, 'vote_type', None) == 'down']
+        return [v for v in votes if getattr(v, "vote_type", None) == "down"]
 
     def get_vote_count(self, obj) -> int:
         upvotes = len(self.get_upvotes(obj))

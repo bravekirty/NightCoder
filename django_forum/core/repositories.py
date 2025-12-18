@@ -20,20 +20,18 @@ This enables:
 - Flexible deployments (different storage for different environments)
 """
 
-from typing import List, Optional
-
 from django.contrib.auth import get_user_model
-from django.core.cache import cache
 from django.contrib.contenttypes.models import ContentType
+from django.core.cache import cache
 from votes.models import Vote
 
 User = get_user_model()
 
 
 def get_user_id(user):
-    if hasattr(user, 'pk'):
+    if hasattr(user, "pk"):
         return user.pk
-    elif hasattr(user, 'id'):
+    elif hasattr(user, "id"):
         return user.id
     elif isinstance(user, int):
         return user
@@ -47,11 +45,11 @@ class BaseVoteRepository:
 
     def get_upvotes(self, obj):
         votes = self.get_votes_for_object(obj)
-        return [v for v in votes if getattr(v, 'vote_type', None) == 'up']
+        return [v for v in votes if getattr(v, "vote_type", None) == "up"]
 
     def get_downvotes(self, obj):
         votes = self.get_votes_for_object(obj)
-        return [v for v in votes if getattr(v, 'vote_type', None) == 'down']
+        return [v for v in votes if getattr(v, "vote_type", None) == "down"]
 
     def get_vote_count(self, obj):
         votes = self.get_votes_for_object(obj)
@@ -86,6 +84,9 @@ class DjangoVoteRepository(BaseVoteRepository):
             return None
 
     def vote(self, obj, user, vote_type):
+        if hasattr(obj, 'author') and obj.author == user:
+            return "self_vote_not_allowed"
+
         content_type = ContentType.objects.get_for_model(obj)
 
         try:
@@ -115,32 +116,30 @@ class MemoryVoteRepository(BaseVoteRepository):
         cls._shared_votes.clear()
 
     def get_votes_for_object(self, obj):
-        return [v for v in self.votes if v['object_id'] == obj.pk]
+        return [v for v in self.votes if v["object_id"] == obj.pk]
 
     def get_user_vote(self, obj, user):
-        if not user or not getattr(user, 'is_authenticated', True):
+        if not user or not getattr(user, "is_authenticated", True):
             return None
 
         for vote in self.votes:
-            if (vote['object_id'] == obj.pk and
-                    vote['user_id'] == get_user_id(user)):
-                return vote['vote_type']
+            if vote["object_id"] == obj.pk and vote["user_id"] == get_user_id(user):
+                return vote["vote_type"]
         return None
 
     def vote(self, obj, user, vote_type):
         vote_idx = None
         for i, v in enumerate(self.votes):
-            if (v['object_id'] == obj.pk and
-                    v['user_id'] == get_user_id(user)):
+            if v["object_id"] == obj.pk and v["user_id"] == get_user_id(user):
                 vote_idx = i
                 break
 
         if vote_idx is not None:
-            if self.votes[vote_idx]['vote_type'] == vote_type:
+            if self.votes[vote_idx]["vote_type"] == vote_type:
                 self.votes.pop(vote_idx)
                 return "removed"
             else:
-                self.votes[vote_idx]['vote_type'] = vote_type
+                self.votes[vote_idx]["vote_type"] = vote_type
                 return "updated"
         else:
             vote = {
@@ -159,7 +158,7 @@ class CachedVoteRepository(DjangoVoteRepository):
     def _get_cache_key(self, obj, suffix=""):
         return f"{self.CACHE_PREFIX}:{obj.__class__.__name__}:{obj.pk}:{suffix}"
 
-    def get_votes_for_object(self, obj) -> List[Vote]:
+    def get_votes_for_object(self, obj) -> list[Vote]:
         cache_key = self._get_cache_key(obj, "all")
         cached = cache.get(cache_key)
 
@@ -171,7 +170,7 @@ class CachedVoteRepository(DjangoVoteRepository):
         cache.set(cache_key, votes, self.CACHE_TTL)
         return votes
 
-    def get_user_vote(self, obj, user: Optional[User]) -> Optional[str]:
+    def get_user_vote(self, obj, user: User | None) -> str | None:
         if user is None or not user.is_authenticated:
             return None
 

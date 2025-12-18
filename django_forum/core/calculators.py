@@ -16,8 +16,10 @@ We can add NEW functionality by creating NEW classes,
 not by changing EXISTING ones. This prevents bugs in stable code.
 """
 
-from core.rep_rules import REPUTATION_RULES
 from abc import ABC, abstractmethod
+
+from core.rep_rules import REPUTATION_RULES
+
 
 class ReputationCalculator(ABC):
     @abstractmethod
@@ -33,11 +35,11 @@ class BasicReputationCalculator(ReputationCalculator):
         vote_suffix = "upvote" if vote_type == "up" else "downvote"
         reputation_key = f"{model_name}_{vote_suffix}"
 
-        if kwargs.get('removed'):
+        if kwargs.get("removed"):
             return -REPUTATION_RULES.get(reputation_key, 0)
-        elif kwargs.get('new_vote_type'):
+        elif kwargs.get("new_vote_type"):
             old_suffix = "upvote" if vote_type == "up" else "downvote"
-            new_suffix = "upvote" if kwargs['new_vote_type'] == "up" else "downvote"
+            new_suffix = "upvote" if kwargs["new_vote_type"] == "up" else "downvote"
             old_points = REPUTATION_RULES.get(f"{model_name}_{old_suffix}", 0)
             new_points = REPUTATION_RULES.get(f"{model_name}_{new_suffix}", 0)
             return new_points - old_points
@@ -49,4 +51,3 @@ class DebugReputationCalculator(ReputationCalculator):
     def calculate(self, model_name, vote_type, **kwargs):
         print(f"DEBUG: Model {model_name}, vote {vote_type}, kwargs {kwargs}")
         return 0
-
