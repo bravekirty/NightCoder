@@ -84,7 +84,7 @@ class DjangoVoteRepository(BaseVoteRepository):
             return None
 
     def vote(self, obj, user, vote_type):
-        if hasattr(obj, 'author') and obj.author == user:
+        if hasattr(obj, "author") and obj.author == user:
             return "self_vote_not_allowed"
 
         content_type = ContentType.objects.get_for_model(obj)
