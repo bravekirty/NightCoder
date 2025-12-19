@@ -277,7 +277,7 @@ class VoteableMixinTest(TestCase):
 
     def test_vote_own_content(self):
         """Test that users cannot vote on their own content"""
-        result = self.question.vote(self.user, "up")  # User voting on their own question
+        self.question.vote(self.user, "up")  # User voting on their own question
 
         self.assertIsNone(self.question.get_user_vote(self.user))
         self.assertEqual(self.question.get_vote_score(), 0)
