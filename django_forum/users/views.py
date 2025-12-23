@@ -57,7 +57,7 @@ class PublicProfileView(DetailView):
 
         question_upvotes = sum(len(question.get_upvotes()) for question in user.questions.all())
         answer_upvotes = sum(len(answer.get_upvotes()) for answer in user.answers.all())
-        review_upvotes = sum(len(review.get_upvotes) for review in user.reviews.all())
+        review_upvotes = sum(len(review.get_upvotes()) for review in user.reviews.all())
         accepted_answers = user.answers.filter(is_accepted=True).count()
 
         context["question_upvotes"] = question_upvotes * REPUTATION_RULES["question_upvote"]

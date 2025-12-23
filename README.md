@@ -1,282 +1,271 @@
-[![ru_readme](https://img.shields.io/badge/Readme-на_Русском-darkblue)](https://github.com/Tarasyonok/pet-project-forum/blob/main/README.ru.md)
-
 # 🌙 Night Coder
 
-> **Where Developers Code Together, Grow Together**  
-> *Because code doesn't sleep, and neither do we* 🚀
+> **Место, где разработчики кодят и развиваются вместе**  
+> *Потому что код не спит, и мы тоже* 🚀
 
-![CI/CD](https://github.com/Tarasyonok/pet-project-forum/actions/workflows/ci.yml/badge.svg)
+![CI/CD](https://github.com/bravekirty/NightCoder/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
 ![Django](https://img.shields.io/badge/Django-5.2-darkgreen?logo=django)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-blue?logo=postgresql)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.2-purple?logo=bootstrap)
 ![Ruff](https://img.shields.io/badge/Ruff-14-lightgreen?logo=ruff)
 ![Gunicorn](https://img.shields.io/badge/Gunicorn-23.0-green?logo=gunicorn)
-![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker)
-![Railway](https://img.shields.io/badge/Railway-Hosting-white?logo=railway)
+![Docker](https://img.shields.io/badge/Docker-Containers-2496ED?logo=docker)
 ![License](https://img.shields.io/badge/License-MIT-yellow?logo=readme)
 
-## 🎯 What is Night Coder?
+## 🎯 Что такое Night Coder?
 
-**Night Coder** is a full-stack developer community platform built for those magical hours when creativity flows best.
-It's where students, and passionate developers come together to ask questions, share knowledge, and grow their skills.
+**Night Coder** — это полнофункциональная платформа для сообщества разработчиков, созданная для тех волшебных часов,
+когда можно заняться своими идеями. Это место, где студенты и увлечённые разработчики собираются вместе, чтобы задавать
+вопросы, делиться знаниями и прокачивать навыки.
 
-### ✨ Why Night Coder?
+### ✨ Почему существует Night Coder
 
-- 🕒 **Community** - Someone is always awake somewhere in the world
-- 🏆 **Gamified Learning** - Earn reputation and climb leaderboards
-- 🌐 **Bilingual** - English and Russian support for global reach
-- 🎨 **Beautiful UI** - Dark theme optimized for night coding sessions
-- 🤝 **Real Connections** - Build your developer reputation and portfolio
+- 🕒 **Сообщество** - Всегда есть тот, не спит и готов пообщаться
+- 🏆 **Геймификация** - Зарабатывай репутацию и поднимайся в рейтинге
+- 🌐 **Два языка** - Поддержка английского и русского
+- 🎨 **Красивый интерфейс** - Тёмная тема для ночного программирования
+- 🤝 **Настоящие связи** - Прокачай свою карму разработчика
 
 ## 🚀 Night Coder Live
 
-### 👉 **[Try Night Coder](https://pet-project-forum-production.up.railway.app/en/)** 👈
+### 👉 **[Попробуй Night Coder](https://nightcoder.rdeaps.com/)** 👈
 
-**Demo Credentials (if you don't want to create an account):**
-
-- Nickname: `DemoUser`
-- Email: `demo@nightcoder.com`
-- Password: `DemoPass123`
-
-## 📸 Screenshots
+## 📸 Скриншоты
 
 <details>
-    <summary>🏠 Homepage</summary><br>
-    <img src="/readme_screenshots/home_en.png" alt="Homepage" width="100%">
+    <summary>🏠 Главная страница</summary><br>
+    <img src="/readme_screenshots/home_ru.png" alt="Главная страница" width="100%">
 </details>
 <details>
-    <summary>👤 User Profile</summary>
-    <br> <img src="/readme_screenshots/profile_en.png" alt="User Profile" width="100%">
+    <summary>👤 Профиль пользователя</summary>
+    <br> <img src="/readme_screenshots/profile_ru.png" alt="Профиль пользователя" width="100%">
 </details>
 <details>
-    <summary>💬 Forum</summary><br>
-    <img src="/readme_screenshots/forum_en.png" alt="Forum" width="100%">
+    <summary>💬 Форум</summary><br>
+    <img src="/readme_screenshots/forum_ru.png" alt="Форум" width="100%">
 </details>
 <details>
-    <summary>📚 Reviews</summary><br>
-    <img src="/readme_screenshots/reviews_en.png" alt="Reviews" width="100%">
+    <summary>📚 Отзывы</summary><br>
+    <img src="/readme_screenshots/reviews_ru.png" alt="Отзывы" width="100%">
 </details>
 <details>
-    <summary>🏆 Leaderboards</summary><br>
-    <img src="/readme_screenshots/leaderboards_en.png" alt="Leaderboard" width="100%">
+    <summary>🏆 Рейтинги</summary><br>
+    <img src="/readme_screenshots/leaderboards_ru.png" alt="Рейтинг" width="100%">
 </details>
 
-## 🛠️ Tech Stack
+## 🛠️ Технологии
 
-### **Backend**
+### **Бэкенд**
 
-- **Python 3.13** - Core programming language
-- **Django 5.2** - Python Web framework
-- **PostgreSQL 17** - Production database
+- **Python 3.13** - Основной язык программирования
+- **Django 5.2** - Веб-фреймворк
+- **PostgreSQL 17** - Продакшен база данных
+- **SOLID-архитектура** - Чистая архитектура в core-приложении ([подробнее](https://github.com/bravekirty/NightCoder/blob/main/django_forum/core/SOLID.md))
 
-### **Frontend**
+### **Фронтенд**
 
-- **Bootstrap 5** - Responsive CSS framework
-- **JavaScript** - Interactive features
-- **HTML5 & CSS3** - Modern web standards
+- **Bootstrap 5** - Адаптивный CSS-фреймворк
+- **JavaScript** - Интерактивные функции
+- **HTML5 & CSS3** - Современные веб-стандарты
 
-### **DevOps & Tools**
+### **DevOps и инструменты**
 
-- **Poetry** - Dependency management and packaging
-- **Ruff** - Ultra-fast Python linter and formatter
-- **Tests** - Unit & Integration tests
-- **Git** - Version control with clean commit history
-- **CI/CD** - Automated linting and testing
-- **Gunicorn** - WSGI HTTP Server for production
-- **Docker** - Containerization
-- **Railway** - Deployment platform
+- **Poetry** - Управление зависимостями и пакетирование
+- **Ruff** - Супербыстрый линтер и форматтер для Python
+- **Тесты** - Юнит-тесты и интеграционные тесты
+- **Git** - Контроль версий с чистой историей коммитов
+- **CI/CD** - Автоматические линтинг и тестирование
+- **Gunicorn** - WSGI HTTP сервер для продакшена
+- **Docker** - Контейнеризация
 
-## 🎨 Key Features
+## 🎨 Ключевые возможности
 
-### 💬 **Q&A Forum**
+### 💬 **Q&A форум**
 
-- Ask programming questions and get answers
-- Vote system with reputation rewards
-- Mark answers as accepted
-- Full-text search across questions and answers
+- Задавай вопросы по программированию и получай ответы
+- Система голосования с наградой в виде репутации
+- Отмечай ответы как верные
+- Полнотекстовый поиск по вопросам и ответам
 
-### ⭐ **Course Reviews**
+### ⭐ **Отзывы о курсах**
 
-- Share experiences with programming courses
-- 5-star rating system with detailed reviews
-- Vote on helpful reviews
-- Search by course name or technology
+- Делись впечатлениями о курсах по программированию
+- 5-звёздочная система оценок с детальными отзывами
+- Голосуй за полезные отзывы
+- Поиск по названию курса или технологии
 
-### 🏆 **Gamification System**
+### 🏆 **Система геймификации**
 
-- **Reputation Points** - Earn through helpful contributions
-- **Leaderboards** - Compete with other developers
-- **Monthly Top Contributors** - Recognition for active members
-- **Footer statistics** - Context processor for community stats on every page
+- **Очки репутации** - Зарабатывай за полезный вклад
+- **Рейтинги** - Соревнуйся с другими разработчиками
+- **Лучшие участники месяца** - Признание для активных членов
+- **Статистика в футере** - Контекстный процессор для статистики сообщества на каждой странице
 
-### 👤 **User Profiles**
+### 👤 **Профили пользователей**
 
-- Avatar upload and personal bios
-- Activity history (questions, answers, reviews)
-- Reputation breakdown and statistics
-- Сontribution metrics
+- Загрузка аватара и личное описание
+- История активности (вопросы, ответы, отзывы)
+- Детализация репутации и статистика
+- Небольшая аналитика данных сайта
 
-### 🌐 **Internationalization**
+### 🌐 **Интернационализация**
 
-- Full English/Russian language support
-- Language switcher
-- SEO-friendly URL structure
+- Полная поддержка английского и русского языков
+- Переключатель языка
+- SEO-дружелюбная структура URL
 
 ### 🎯 **UX/UI**
 
-- Dark theme optimized for coding
-- Mobile-responsive design
-- Accessible and keyboard-navigation friendly
+- Тёмная тема, оптимизированная для программирования
+- Адаптивный дизайн для мобильных устройств
+- Доступность и удобная навигация с клавиатуры
 
-## 📁 Project Structure
+## 📁 Структура проекта
 
 ```
 night-coder/
-├── 🔧 core/                # Shared utilities & mixins
-├── 💬 forum/               # Q&A functionality
-├── 🏠 home/                # Homepage app
-├── 🏆 leaderboards/        # Gamification system
-├── 🌐 locale/              # Translation files
-├── ⭐ reviews/             # Course reviews
-├── 🗿 static/              # CSS, JS, images
-├── 💄 templates/           # Django templates
-├── 👤 users/               # Authentication & profiles
-└── 👍 votes/               # Content votes
+├── 🔧 core/                # Общие утилиты, миксины и SOLID-архитектура
+├── 💬 forum/               # Функционал вопросов и ответов
+├── 🏠 home/                # Приложение главной страницы
+├── 🏆 leaderboards/        # Система геймификации
+├── 🌐 locale/              # Файлы переводов
+├── ⭐ reviews/             # Отзывы о курсах
+├── 🗿 static/              # CSS, JS, изображения
+├── 💄 templates/           # Шаблоны Django
+├── 👤 users/               # Аутентификация и профили
+└── 👍 votes/               # Голосование за контент
 ```
 
-## 🚀 Quick Start
+## 🚀 Быстрый старт
 
-1. **Clone the repository**
+1. **Клонируй репозиторий**
    ```bash
-   git clone https://github.com/Tarasyonok/pet-project-forum
-   cd pet-project-forum
+   git clone https://github.com/bravekirty/NightCoder
+   cd NightCoder
    ```
 
-2. **Configure environment**
+2. **Настрой окружение**
    ```bash
    cp .env.example .env
-   # Edit .env with your hosts and secret key
+   # Отредактируй .env со своими хостами и секретным ключом
    ```
 
-### Option 1: Docker (Recommended)
+### Вариант 1: Docker (Рекомендуется)
 
-1. **Run with Docker**
-   ```bash
+1. Запусти через Docker
+    ```bash
    docker-compose up --build
    ```
 
-### Option 2: Traditional Development
+### Вариант 2: Традиционная разработка
 
-1. **Set up virtual environment**
+1. **Настрой виртуальное окружение**
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   source venv/bin/activate  # На Windows: venv\Scripts\activate
    ```
 
-2. **Install dependencies**
+2. **Установи зависимости**
    ```bash
    pip install poetry
    poetry install
    ```
 
-3. **Run migrations**
+3. **Запусти миграции**
    ```bash
    python manage.py migrate
    ```
 
-4. **Create superuser**
+4. **Создай суперпользователя**
    ```bash
    python manage.py createsuperuser
    ```
 
-5. **Run development server**
+5. **Запусти сервер для разработки**
    ```bash
    python manage.py runserver
    ```
 
-**Visit [localhost:8000](http://localhost:8000) and create your first question! 🌙**
+Перейди на [localhost:8000](http://localhost:8000) и создай свой первый вопрос! 🌙
 
-## 🧪 Testing
+## 🧪 Тестирование
 
 ```bash
 python manage.py test
 ```
 
-## 🔧 Code Quality
+## 🔧 Качество кода
 
 ```bash
-# Lint and format code
-ruff check .          # Linting
-ruff format .         # Formatting
+# Линтинг и форматирование кода
+ruff check .          # Линтинг
+ruff format .         # Форматирование
 ```
 
-## 🌐 Deployment
+## 🌐 Деплой
 
-Night Coder is deployed on **Railway** with automatic CI/CD:
+Night Coder развёрнут на **моем VPS** с production-стеком:
 
-1. **Push to main branch** → Automatic deployment
-2. **CI/CD** → Build after linting and testing pass
-3. **Environment** → Production configuration
+1. **Сервер:** Ubuntu VPS
+2. **Продакшен стек:** Gunicorn + Nginx + PostgreSQL
+3. **Контейнеризация:** Docker для изоляции
+4. **Домен:** Настроен SSL и проксирование через Nginx
 
-## 🤝 Contributing
+## 🤝 Участие в разработке
 
-We love contributions! Here's how you can help:
+Мы рады заинтересованными программистами! Вот как ты можешь помочь:
 
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
+1. **Сделай форк** репозитория
+2. **Создай** feature ветку (`git checkout -b feature/amazing-feature`)
+3. **Закоммить** изменения (`git commit -m 'Add amazing feature'`)
+4. **Запуш** в ветку (`git push origin feature/amazing-feature`)
+5. **Открой** Pull Request
 
-### If you have any feedback/suggestions for improvements, feel free to open an Issue
+### Рекомендации по разработке
 
-### Development Guidelines
+- Следуй стилю PEP 8 (используй ruff)
+- Пиши тесты для новых функций
+- Обновляй документацию
+- Используй осмысленные сообщения коммитов с эмодзи
 
-- Follow PEP 8 style guide (use ruff)
-- Write tests for new features
-- Update documentation
-- Use meaningful commit messages with emojis
+### Если есть какие то замечания/предложения по улучшению, то смело открывай Issue
 
-## 🏆 Achievements
+## 🏆 Достижения
 
-This project demonstrates mastery in:
+Этот проект демонстрирует мастерство в:
 
-- ✅ **Full-Stack Development** - End-to-end web application
-- ✅ **Database Design** - Complex relationships and optimization
-- ✅ **User Experience** - Intuitive and engaging interface
-- ✅ **DevOps** - CI/CD, and cloud deployment
-- ✅ **Containerization** - Docker and Docker Compose
-- ✅ **Production Deployment** - PostgreSQL, Gunicorn, and environment management
-- ✅ **Internationalization** - Multi-language support
-- ✅ **Testing & Quality** - Comprehensive test coverage
-- ✅ **Performance** - Fast loading and efficient queries
+- ✅ **Full-Stack разработке** - Полноценное веб-приложение
+- ✅ **[SOLID архитектуре](https://github.com/bravekirty/NightCoder/blob/main/django_forum/core/SOLID.md)** - Для системы голосования 
+- ✅ **Дизайне баз данных** - Сложные связи и оптимизация
+- ✅ **Пользовательском опыте** - Интуитивно понятный и приятный интерфейс
+- ✅ **DevOps** - CI/CD и облачный деплой
+- ✅ **Контейнеризации** - Docker и Docker Compose
+- ✅ **Продакшен развертывании** - PostgreSQL, Gunicorn и управление окружением
+- ✅ **Интернационализации** - Поддержка нескольких языков
+- ✅ **Тестировании и качестве** - Полное покрытие тестами
 
-## 👨‍💻 About the Developer
+## 👨‍💻 О разработчике
 
-**Kir Tarasov**  
-*Full-Stack Developer*
+**Кирилл Тарасов**  
+*Python Backend Developer*
 
 - ✈️ **Telegram**: [@bravekirty](https://t.me/bravekirty)
-- 🐙 **GitHub**: [@Tarasyonok](https://github.com/Tarasyonok)
+- 🐙 **GitHub**: [@bravekirty](https://github.com/bravekirty)
 - 📧 **Email**: bravekirty@gmail.com
 
-[//]: # (- 🌳 **Linktree**: [@bravekirty]&#40;https://linktr.ee/bravekirty&#41;)
+## 📄 Лицензия
 
-[//]: # (- 💼 **LinkedIn**: [Your LinkedIn]&#40;https://linkedin.com/in/your-profile&#41;)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Этот проект лицензирован под MIT License - смотри файл [LICENSE](LICENSE) для деталей.
 
 ---
 
 <div align="center">
 
-### **Ready to join our night coding community?** 🌙
+### **Готов присоединиться к нашему ночному сообществу?** 🌙
 
-[![Try Night Coder](https://img.shields.io/badge/Try_Night_Coder-Live-orange?style=for-the-badge)](https://pet-project-forum-production.up.railway.app/en/)
+[![Попробовать Night Coder](https://img.shields.io/badge/Попробовать_Night_Coder-Live-orange?style=for-the-badge)](https://nightcoder.rdeaps.com/)
 
-*⭐ Don't forget to star this repo if you found it interesting/helpful!*
+*⭐ Не забудь поставить звёздочку репозиторию, если он тебе понравился!*
 
 </div>

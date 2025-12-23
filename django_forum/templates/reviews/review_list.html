@@ -81,7 +81,7 @@
                         {% if is_search %}📄 {% trans "Results" %}{% else %}⭐ {% trans "Latest Reviews" %}{% endif %}
                     </h4>
                     <div class="d-flex gap-2">
-                        <span class="text-light-50 small">{% blocktrans %}{{ page_obj.paginator.count }} total{% endblocktrans %}</span>
+                        <span class="text-light-50 small">{% blocktrans %}{{ total_courses }} total{% endblocktrans %}</span>
                     </div>
                 </div>
                 <div class="card-body p-0">
